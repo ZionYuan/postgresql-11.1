@@ -15,7 +15,8 @@
 #define NODEWINDOWAGG_H
 
 #include "nodes/execnodes.h"
-
+/* added by qww for windows sample */
+double		sample_percent;
 extern WindowAggState *ExecInitWindowAgg(WindowAgg *node, EState *estate, int eflags);
 extern void ExecEndWindowAgg(WindowAggState *node);
 extern void ExecReScanWindowAgg(WindowAggState *node);

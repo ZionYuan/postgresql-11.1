@@ -90,6 +90,7 @@
 #include "utils/tzparser.h"
 #include "utils/varlena.h"
 #include "utils/xml.h"
+#include "executor/nodeWindowAgg.h"
 
 #ifndef PG_KRB_SRVTAB
 #define PG_KRB_SRVTAB ""
@@ -3256,7 +3257,16 @@ static struct config_real ConfigureNamesReal[] =
 		0.1, 0.0, 1e10,
 		NULL, NULL, NULL
 	},
-
+	/* added for sample */
+	{
+		{"sample_percent", PGC_USERSET, PRESET_OPTIONS,
+			gettext_noop("sample methods"),
+			NULL,
+			GUC_NOT_IN_SAMPLE
+		},
+		&sample_percent,
+		0, 0, INT_MAX, NULL, NULL
+	},
 	/* End-of-list marker */
 	{
 		{NULL, 0, 0, NULL, NULL}, NULL, 0.0, 0.0, 0.0, NULL, NULL, NULL
